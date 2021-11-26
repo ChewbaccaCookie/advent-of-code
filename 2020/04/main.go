@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"regexp"
 	"strings"
+	"time"
 )
 
 type PasswortValidation struct {
@@ -13,6 +14,7 @@ type PasswortValidation struct {
 }
 
 func main() {
+	start := time.Now()
 	input := shared.ReadFile("input.txt")
 	passports := strings.Split(input, "\n\n")
 	properties := []PasswortValidation{
@@ -100,4 +102,5 @@ func main() {
 
 	fmt.Println(validA)
 	fmt.Println(validB)
+	fmt.Println(time.Since(start))
 }
