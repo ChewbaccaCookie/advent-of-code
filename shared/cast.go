@@ -9,3 +9,14 @@ func Str2Int(strVar string) int {
 	}
 	return i
 }
+
+func Int2Str(i int) string {
+	return strconv.FormatInt(int64(i), 10)
+}
+
+func IntArr2String(intArr []int) (out string) {
+	for _, item := range intArr {
+		out += Int2Str(item)
+	}
+	return out
+}
