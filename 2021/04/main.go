@@ -9,6 +9,7 @@ import (
 type Board struct {
 	boardNum    int
 	drawnNumber int
+	sum         int
 }
 
 func main() {
@@ -60,11 +61,18 @@ func main() {
 		for pieceNum, columns := range winningColumns {
 			for _, v := range columns {
 				if v == 5 {
+					sum := 0
+					for _, piece := range bingoPieces[pieceNum] {
+						sum += piece
+					}
 					boardsWon = append(boardsWon, Board{
 						boardNum:    pieceNum,
 						drawnNumber: num,
+						sum:         sum - drawnFromPiece[pieceNum],
 					})
-
+					bingoPieces[pieceNum] = []int{}
+					winningRows[pieceNum] = map[int]int{}
+					winningColumns[pieceNum] = map[int]int{}
 					break
 				}
 			}
@@ -78,10 +86,18 @@ func main() {
 		for pieceNum, rows := range winningRows {
 			for _, v := range rows {
 				if v == 5 {
+					sum := 0
+					for _, piece := range bingoPieces[pieceNum] {
+						sum += piece
+					}
 					boardsWon = append(boardsWon, Board{
 						boardNum:    pieceNum,
 						drawnNumber: num,
+						sum:         sum - drawnFromPiece[pieceNum],
 					})
+					bingoPieces[pieceNum] = []int{}
+					winningRows[pieceNum] = map[int]int{}
+					winningColumns[pieceNum] = map[int]int{}
 					break
 				}
 
@@ -96,17 +112,6 @@ func main() {
 	best := boardsWon[0]
 	worst := boardsWon[len(boardsWon)-1]
 
-	sumBest := 0
-	sumWorst := 0
-	for _, piece := range bingoPieces[best.boardNum] {
-		sumBest += piece
-	}
-	for _, piece := range bingoPieces[worst.boardNum] {
-		sumWorst += piece
-	}
-	sumBest -= drawnFromPiece[best.boardNum]
-	sumWorst -= drawnFromPiece[worst.boardNum]
-
-	fmt.Println(sumBest * best.drawnNumber)
-	fmt.Println(sumWorst * worst.drawnNumber)
+	fmt.Println(best.sum * best.drawnNumber)
+	fmt.Println(worst.sum * worst.drawnNumber)
 }
