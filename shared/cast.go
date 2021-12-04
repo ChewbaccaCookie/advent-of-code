@@ -20,3 +20,10 @@ func IntArr2String(intArr []int) (out string) {
 	}
 	return out
 }
+
+func StringArr2IntStr(strArr []string) (out []int) {
+	for _, item := range strArr {
+		out = append(out, Str2Int(item))
+	}
+	return out
+}
