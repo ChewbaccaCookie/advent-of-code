@@ -1,0 +1,21 @@
+{
+  "folders": [
+    {
+      "path": "./shared",
+      "name": "Shared"
+    },
+    {
+      "path": "./day1",
+      "name": "Day 1"
+    },
+    {
+      "path": "./day2",
+      "name": "Day 2"
+    },
+    {
+      "path": "./day3",
+      "name": "Day 3"
+    }
+  ],
+  "settings": {}
+}

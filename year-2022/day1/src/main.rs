@@ -1,5 +1,3 @@
-use std::fs;
-
 const TOP_NUM: usize = 3;
 
 fn main() {
@@ -14,7 +12,10 @@ fn main() {
 }
 
 pub fn load_file_and_find_max_calorines(file_name: &str) -> [u32; TOP_NUM] {
-    let file_content = load_input(file_name);
+    let mut file_content = shared::load_input(file_name);
+    // add a empty line to the end
+    file_content.push_str("\n\n");
+
     find_max_calorines(&file_content)
 }
 
@@ -51,14 +52,6 @@ fn find_max_calorines(file_content: &str) -> [u32; TOP_NUM] {
     }
 
     max_calorines
-}
-
-fn load_input(file_path: &str) -> String {
-    let mut file_content =
-        fs::read_to_string(file_path).expect(&format!("Failed to load file {}!", file_path));
-    // add a empty line to the end
-    file_content.push_str("\n\n");
-    file_content
 }
 
 #[cfg(test)]
