@@ -15,6 +15,22 @@
     {
       "path": "./day3",
       "name": "Day 3"
+    },
+    {
+      "path": "./day4",
+      "name": "Day 4"
+    },
+    {
+      "path": "./day5",
+      "name": "Day 5"
+    },
+    {
+      "path": "./day6",
+      "name": "Day 6"
+    },
+    {
+      "path": "./",
+      "name": "Year 2022"
     }
   ],
   "settings": {}
