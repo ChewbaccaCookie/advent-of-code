@@ -11,6 +11,10 @@ fn calculate_score(file_path: &str) -> (u32, u32) {
 
     let reg: Regex = Regex::new(r"([ABC])\s([XYZ])").unwrap();
 
+
+
+
+    
     let file_content = shared::load_input(file_path);
     let mut star1_score = 0;
     let mut star2_score = 0;
